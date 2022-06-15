@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  hotrod:
+    image: jaegertracing/example-hotrod:latest
+    ports:
+      - "8080:8080"
+    command: ["all"]
+    environment:
+      - JAEGER_AGENT_HOST=10.1.10.35
+      #10.237.30.27
+      #10.1.10.35
+      # Note: if your application is using Node.js Jaeger Client, you need port 6832,
+      #       unless issue https://github.com/jaegertracing/jaeger/issues/1596 is resolved.
+      - JAEGER_AGENT_PORT=6831
